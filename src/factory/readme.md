@@ -11,4 +11,4 @@ Great news, right? But how about the code? At present, most of your code is coup
 As a result, you will end up with pretty nasty code, riddled with conditionals that switch the app’s behavior depending on the class of transportation objects.
 
 # Diagram
-![](Screenshot 2022-11-30 at 14.21.33.png)
+![](factoryDiagram.png)
