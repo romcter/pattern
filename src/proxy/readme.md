@@ -9,4 +9,4 @@ The Proxy pattern allows us to create an intermediary that acts as an interface 
 
 # Diagram
 
-![](Screenshot 2022-11-24 at 15.25.11.png)
+![](proxyDiagram.png)
