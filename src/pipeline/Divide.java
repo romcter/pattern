@@ -1,6 +1,7 @@
 package pipeline;
 
 public class Divide implements Handler<Integer, Integer> {
+
     @Override
     public Integer process(Integer input) {
         var resultDividing = input / 2;

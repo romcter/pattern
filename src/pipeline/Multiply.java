@@ -1,6 +1,7 @@
 package pipeline;
 
 public class Multiply implements Handler<Integer, Integer> {
+
     @Override
     public Integer process(Integer input) {
         var resultMultiplying = input * 2;
