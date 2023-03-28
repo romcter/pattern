@@ -20,6 +20,7 @@
         <module>abstract-factory</module>
         <module>composite</module>
         <module>observer</module>
+        <module>callback</module>
     </modules>
 
     <dependencies>
