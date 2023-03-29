@@ -12,11 +12,4 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>callback</name>
     <description>callback</description>
-    <properties>
-        <java.version>17</java.version>
-    </properties>
-    <dependencies>
-
-    </dependencies>
-
 </project>

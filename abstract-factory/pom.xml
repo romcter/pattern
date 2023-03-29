@@ -7,28 +7,9 @@
     <artifactId>java-desine-pattern</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
+  <groupId>com.example</groupId>
   <artifactId>abstract-factory</artifactId>
-  <dependencies>
-  </dependencies>
-  <build>
-    <plugins>
-      <!-- Maven assembly plugin is invoked with default setting which we have
-				in parent pom and specifying the class having main method -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <executions>
-          <execution>
-            <configuration>
-              <archive>
-                <manifest>
-                  <mainClass>com.pattern.abstractFactory.CarFactoryRunner</mainClass>
-                </manifest>
-              </archive>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>abstract-factory</name>
+  <description>abstract-factory</description>
 </project>
