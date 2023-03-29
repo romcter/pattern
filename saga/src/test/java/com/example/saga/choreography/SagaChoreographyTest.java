@@ -22,20 +22,43 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.iluwatar.abstractfactory;
+package com.example.saga.choreography;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * Check whether the execution of the main method in {@link App} throws an exception.
+ * test to check choreography saga
  */
-class AppTest {
-    
-  @Test
-  void shouldExecuteApplicationWithoutException() {
+class SagaChoreographyTest {
 
-	  assertDoesNotThrow(() -> App.main(new String[]{}));
+  @Test
+  void executeTest() {
+    ServiceDiscoveryService sd = serviceDiscovery();
+    ChoreographyChapter service = sd.findAny();
+    Saga badOrderSaga = service.execute(newSaga("bad_order"));
+    Saga goodOrderSaga = service.execute(newSaga("good_order"));
+
+    assertEquals(SagaResult.ROLLEDBACK, badOrderSaga.getResult());
+    assertEquals(SagaResult.FINISHED, goodOrderSaga.getResult());
+  }
+
+  private static Saga newSaga(Object value) {
+    return Saga
+            .create()
+            .chapter("order Iphone").setInValue(value)
+            .chapter("Stay in line to your Iphone")
+            .chapter("Take yor Iphone")
+            .chapter("withdrawing money");
+  }
+
+  private static ServiceDiscoveryService serviceDiscovery() {
+    ServiceDiscoveryService sd = new ServiceDiscoveryService();
+    return sd
+            .discover(new OrderIphoneService(sd))
+            .discover(new StayInLineService(sd))
+            .discover(new TakeYourIphoneService(sd))
+            .discover(new WithdrawMoneyService(sd));
   }
 }

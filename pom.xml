@@ -21,6 +21,7 @@
         <module>composite</module>
         <module>observer</module>
         <module>callback</module>
+        <module>saga</module>
     </modules>
 
     <dependencies>
